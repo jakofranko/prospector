@@ -1,0 +1,25 @@
+{
+  "name": "prospector",
+  "version": "1.0.0",
+  "description": "A simple tool for visualizing your cryptocurrency wallet's transaction history",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server",  
+    "test": "echo There is no text command currently && exit 1"
+  },
+  "keywords": [
+    "crypto",
+    "data",
+    "visualization",
+    "cryptocurrency",
+    "bitcoin",
+    "garlicoin",
+    "garlium"
+  ],
+  "author": "Jake Franklin <jacob.d.franklin@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^4.13.0",
+    "http-server": "^0.11.1"
+  }
+}

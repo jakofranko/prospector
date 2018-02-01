@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prospector</title>
+    <script src="node_modules/d3/build/d3.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/macian/macian.min.css">
+</head>
+<body>
+    <div class="r ac">
+        <div class="c4 mv4">
+            <div id="average-transaction" class="mb5">
+                <h2 class="mb2">Avg. Transaction Amount</h2>
+                <p></p>
+            </div>
+            <div id="average-transactions-day" class="mb5">
+                <h2 class="mb2">Avg. Number of Transactions</h2>
+                <p></p>
+            </div>
+            <div id="daily-average" class="mb5">
+                <h2 class="mb2">Avg. Daily Income</h2>
+                <p></p>
+            </div>
+        </div>
+        <div class="c4 mv4">
+            <svg id="chart"></svg>
+            <div id="legend" class="blanc bg-3 p3">
+                <h3 class="mb2">Transactions per Day</h3>
+            </div>
+        </div>
+        <div class="c4 mv4">
+            <div id="smallest-transaction" class="mb5">
+                <h2 class="mb2">Smallest Transactions</h2>
+                <p></p>
+            </div>
+            <div id="largest-transaction" class="mb5">
+                <h2 class="mb2">Largest Transaction</h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/chart.js"></script>
+</body>
+</html>
