@@ -1,13 +1,3 @@
-const w = 500;
-const h = 500;
-const p = 40;
-
-const svg = d3.select("#chart")
-    .attr("width", w)
-    .attr("height", h);
-
-const legend = d3.select("#legend");
-
 function rowParser(row) {
     if(!row.timestamp)
         throw new Error('Your csv file must have a row named "timestamp"');
@@ -45,14 +35,24 @@ function processRows(rows) {
     }
 
     return {
+        rows,
         transactionsPerDay,
         perDay
     };
 }
 
-d3.csv("transaction-history.csv", rowParser, function(rows) {
-    const data = processRows(rows);
-    console.log(data);
+function renderGraph(data) {
+    const container = document.getElementById("graph-container");
+    console.log(container);
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    const p = 40;
+
+    const svg = d3.select("#chart")
+        .attr("width", w)
+        .attr("height", h);
+
+    const legend = d3.select("#legend");
 
     // Scales
     const xScale = d3.scaleTime()
@@ -114,8 +114,22 @@ d3.csv("transaction-history.csv", rowParser, function(rows) {
         .attr("transform", `translate(${p},0)`)
         .call(yAxis);
 
+    // Axis labels
+    svg.append("text")
+        .style("text-anchor", "middle")
+        .attr("x", (w - p) / 2)
+        .attr("y", h)
+        .text("Date");
+
+    svg.append("text")
+        .style("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
+        .attr("x", 0 - (h / 2))
+        .attr("y", p / 3)
+        .text("Coins");
+
     d3.select("#average-transaction p")
-        .text(d3.mean(rows, r => r.value));
+        .text(d3.mean(data.rows, r => r.value));
 
     d3.select("#average-transactions-day p")
         .text(d3.mean(data.perDay, d => d.amount));
@@ -124,8 +138,13 @@ d3.csv("transaction-history.csv", rowParser, function(rows) {
         .text(d3.mean(data.perDay, d => d.value));
 
     d3.select("#smallest-transaction p")
-        .text(d3.min(rows, r => r.value));
+        .text(d3.min(data.rows, r => r.value));
 
     d3.select("#largest-transaction p")
-        .text(d3.max(rows, r => r.value));
+        .text(d3.max(data.rows, r => r.value));
+}
+
+d3.csv("transaction-history.csv", rowParser, function(rows) {
+    const data = processRows(rows);
+    renderGraph(data);
 });
