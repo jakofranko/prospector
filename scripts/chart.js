@@ -144,7 +144,7 @@ function renderGraph(data) {
         .text(d3.max(data.rows, r => r.value));
 }
 
-d3.csv("transaction-history.csv", rowParser, function(rows) {
+d3.csv("demo-history.csv", rowParser, function(rows) {
     const data = processRows(rows);
     renderGraph(data);
 });
