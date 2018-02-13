@@ -43,7 +43,6 @@ function processRows(rows) {
 
 function renderGraph(data) {
     const container = document.getElementById("graph-container");
-    console.log(container);
     const w = container.clientWidth;
     const h = container.clientHeight;
     const p = 40;
@@ -61,10 +60,6 @@ function renderGraph(data) {
             d3.max(data.perDay, day => day.date)
         ])
         .range([p, w - p]);
-
-
-    console.log(d3.min(data.perDay, day => day.value),
-    d3.max(data.perDay, day => day.value));
 
     const yScale = d3.scaleLinear()
         .domain([
