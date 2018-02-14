@@ -15,7 +15,7 @@ Prospector is a visualizer for your cryptocurrency wallet history, to aid with u
 
 Feel free to drop a few Garlicoin my way if you found this useful :)
 
-`GRCL: GYjdbaeR1pqAFdya6aqz5R8rPHRM1w4LeC`
+`GRLC: GYjdbaeR1pqAFdya6aqz5R8rPHRM1w4LeC`
 
 ## Don't like what you see?
 
